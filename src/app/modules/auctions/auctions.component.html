@@ -1,0 +1,148 @@
+<div class="w-100">
+  <div class="container">
+    <div class="row px-2 py-5">
+      <!--------- aut-auction-list-wrapper --------->
+
+      <div class="col-12">
+        <div class="row">
+          <!--- aut-auction-list-header --->
+          <div class="col-12 text-center text-muted">
+            <p class="lead mb-1">Domestic auctions</p>
+            <p class="small">
+              Below you will find current auctions with vehicles from various
+              suppliers.
+            </p>
+          </div>
+          <!--- !! --->
+
+          <!--- aut-auction-list --->
+          <div
+            *ngIf="auctionsData.domesticAuctions?.length >= 0; else noDomestic"
+          >
+            <div
+              class="col-12 rounded bg-white mt-2 currentauctions-list"
+              *ngFor="let auction of auctionsData.domesticAuctions"
+            >
+              <div class="row position-relative">
+                <div class="col-3 col-md-2 px-2 py-3 text-center">
+                  <img class="img-fluid" src="{{ auction.logo }}" alt="" />
+                </div>
+                <div class="col-9 col-md-10 position-static py-3">
+                  <div class="row">
+                    <div class="col-12 col-md-6 position-static px-2">
+                      <h6>
+                        <a routerLink="auction_result" class="stretched-link">{{
+                          auction.title
+                        }}</a>
+                      </h6>
+                    </div>
+                    <div class="col-3 col-md-1 position-static px-2">
+                      <p class="m-0 small">
+                        <img
+                          src="https://g.autorola.com/g/i/fl/{{
+                            auction.countryCode
+                          }}.gif"
+                          alt=""
+                          class="flags"
+                        />{{ auction.countryCode }}
+                      </p>
+                    </div>
+                    <div class="col-3 col-md-1 position-static px-2">
+                      <p class="m-0 small text-nowrap">
+                        {{ auction.numberOfCars
+                        }}<i class="fas fa-car-side ms-1"></i>
+                      </p>
+                    </div>
+                    <div class="col-6 col-md-4 position-static ps-4 pe-3">
+                      <p class="m-0 small">
+                        <i class="fas fa-stopwatch me-1"></i
+                        >{{ auction.timeFormatted }}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ng-template #noDomestic
+            >There are currently no available domestic auctions.</ng-template
+          >
+          <!--- !! --->
+
+          <!--- vertical spacing between domestic and international sections --->
+          <div class="w-100 my-4"></div>
+          <!--- !! --->
+
+          <!--- aut-auction-list-header --->
+          <div class="col-12 text-center text-muted">
+            <p class="lead mb-1">International auctions</p>
+            <p class="small">
+              Other current auctions running throughout Autorola worldwide.
+            </p>
+          </div>
+          <!--- !! --->
+
+          <!--- aut-auction-list --->
+          <div
+            *ngIf="
+              auctionsData.internationalAuctions?.length >= 0;
+              else noInternational
+            "
+          >
+            <div
+              class="col-12 rounded bg-white mt-2 currentauctions-list"
+              *ngFor="let auction of auctionsData.internationalAuctions"
+            >
+              <div class="row position-relative">
+                <div class="col-3 col-md-2 px-2 py-3 text-center">
+                  <img class="img-fluid" src="{{ auction.logo }}" alt="" />
+                </div>
+                <div class="col-9 col-md-10 position-static py-3">
+                  <div class="row">
+                    <div class="col-12 col-md-6 position-static px-2">
+                      <h6>
+                        <a routerLink="auction_result" class="stretched-link">{{
+                          auction.title
+                        }}</a>
+                      </h6>
+                    </div>
+                    <div class="col-3 col-md-1 position-static px-2">
+                      <p class="m-0 small">
+                        <img
+                          src="https://g.autorola.com/g/i/fl/{{
+                            auction.countryCode
+                          }}.gif"
+                          alt=""
+                          class="flags"
+                        />{{ auction.countryCode }}
+                      </p>
+                    </div>
+                    <div class="col-3 col-md-1 position-static px-2">
+                      <p class="m-0 small text-nowrap">
+                        {{ auction.numberOfCars
+                        }}<i class="fas fa-car-side ms-1"></i>
+                      </p>
+                    </div>
+                    <div class="col-6 col-md-4 position-static ps-4 pe-3">
+                      <p class="m-0 small">
+                        <i class="fas fa-stopwatch me-1"></i
+                        >{{ auction.timeFormatted }}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ng-template #noInternational
+            >There are currently no available international
+            auctions.</ng-template
+          >
+          <!--- !! --->
+        </div>
+      </div>
+
+      <!--------- // --------->
+    </div>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+<header>
+  <nav class="navbar navbar-light navbar-expand-lg fixed-top">
+    <div class="container">
+      <a routerLink="">
+        <img
+          src="assets/logo_responsive_autorola.png"
+          alt=""
+          class="logo img-fluid"
+          role="button"
+        />
+      </a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarCollapse"
+        aria-controls="navbarCollapse"
+        aria-expanded="fasse"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto ms-1">
+          <li class="nav-item">
+            <a routerLink="vehicles" routerLinkActive="active" class="nav-link"
+              >Vehicles</a
+            >
+          </li>
+          <li class="nav-item">
+            <a routerLink="auctions" routerLinkActive="active" class="nav-link"
+              >Auctions</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div id="wrapper">
+  <div id="page-wrapper-01">
+    <!--------------------------------------- MENU BAR MOBILE -------------------------------------->
+
+    <div class="d-lg-none bg-black shadow-sm">
+      <div class="btn-group w-100 btn-group-sm">
+        <button
+          class="btn text-white rounded-0 py-2"
+          type="button"
+          onclick="window.location='search_result_list.html';"
+        >
+          Vehicles
+        </button>
+        <button
+          class="btn text-white rounded-0 py-2"
+          type="button"
+          routerLink="auctions"
+        >
+          Auctions
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

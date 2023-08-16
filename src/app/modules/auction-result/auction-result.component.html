@@ -1,0 +1,155 @@
+<!--------------------------------------------- // --------------------------------------------->
+<!--------------------------------------------- AUCTION HEADER --------------------------------------------->
+
+<div class="w-100">
+  <div class="container">
+    <div class="row px-2 py-4">
+      <div class="col-12">
+        <!--- !! --->
+        <div class="row">
+          <div class="col-12 px-0 text-center text-muted">
+            <img
+              class="img-fluid"
+              src="https://g.autorola.com/g/da_DK/misc/logo_autorola_24h.gif"
+              alt=""
+            />
+            <p class="lead my-3">Alphabet Long Term Rental</p>
+          </div>
+        </div>
+        <!--- !! --->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!------------------------------------------------ // ------------------------------------------------>
+
+<main role="main" class="container mb-5">
+  <!-- TOOLBAR -->
+
+  <div class="pt-3 pb-2">
+    <div class="d-flex flex-wrap justify-content-end">
+      <button
+        type="button"
+        class="btn btn-light mb-1 ms-1 shadow-none"
+        onclick="window.location='auction_result_gallery.html';"
+      >
+        <i class="fas fa-th" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <div class="d-flex border-top mt-1 pt-2 justify-content-end">
+      <div class="ms-3 small text-black-50 text-nowrap">
+        Showing 2,997<i class="fas fa-car-side ms-1" aria-hidden="true"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- // -->
+
+  <div class="row px-2">
+    <!--------------------------------------------- VEHICLE 01 --------------------------------------------->
+    <div
+      class="col-12 rounded bg-white mt-2 vehicle-searchresult-list"
+      *ngFor="let car of auctionsData.articles"
+    >
+      <div class="row position-relative">
+        <div class="col-3 col-md-2 col-lg-1 px-0 py-2 ps-2">
+          <figure class="m-0">
+            <img class="rounded img-fluid" src="{{ car.pictureUrl }}" alt="" />
+          </figure>
+        </div>
+        <div class="col-9 col-md-10 col-lg-11 position-static pt-2 pb-1">
+          <div class="row">
+            <div
+              class="col-12 col-lg-4 position-static px-2 py-0 mb-1 order-first"
+            >
+              <div class="favorite" type="button"></div>
+              <h6 class="pe-4 pe-md-0">
+                <a href="javascript:void(0);" class="stretched-link">{{
+                  car.headline
+                }}</a>
+              </h6>
+              <p class="m-0 small text-truncate pe-4 pe-md-0">
+                {{ car.details }}
+              </p>
+            </div>
+            <div
+              class="col-5 col-lg-6 position-static px-2 py-0 mb-1 order-0 order-lg-4"
+            >
+              <p class="m-0 small">
+                <i
+                  class="fas fa-tachometer-alt-fast me-1"
+                  aria-hidden="true"
+                ></i
+                >{{ car.formattedMileage }}
+              </p>
+            </div>
+            <div
+              class="col-7 col-lg-2 position-static px-2 py-0 mb-1 order-1 order-lg-0"
+            >
+              <p class="m-0 small">
+                <img
+                  src="https://g.autorola.com/g/i/fl/{{ car.countryCode }}.gif"
+                  alt="DK"
+                  class="flags"
+                />{{ car.countryCode }}, {{ car.formattedLocation }}
+              </p>
+            </div>
+            <div
+              class="col-12 col-lg-2 position-static px-2 py-0 mb-1 order-2 order-lg-1"
+            >
+              <p class="m-0 small">
+                <span class="small">{{ car.auctionTitle }}</span>
+              </p>
+            </div>
+            <div
+              *ngIf="car.additionalArticles"
+              class="col-12 col-lg-6 position-static px-2 py-0 mb-1 order-3 order-lg-5"
+            >
+              <p class="m-0">
+                <span class="badge text-wrap bg-light text-dark fw-normal mb-1"
+                  >Packlot</span
+                >
+              </p>
+            </div>
+            <div
+              *ngIf="car.additionalArticles"
+              class="col-12 position-static px-2 py-0 mb-2 order-4 order-lg-last"
+            >
+              <p class="mb-1 small text-truncate text-muted">
+                Also included in packlot #{{ car.enrollId }}
+              </p>
+              <p
+                class="m-0 small text-truncate"
+                *ngFor="let article of car.additionalArticles"
+              >
+                <i
+                  class="text-muted fas fa-car-side me-1"
+                  aria-hidden="true"
+                ></i
+                >{{ article }}
+              </p>
+            </div>
+            <div
+              class="col-6 col-lg-2 position-static px-2 py-0 mb-1 order-5 order-lg-2"
+            >
+              <p class="m-0 small">
+                <i class="fas fa-stopwatch me-1" aria-hidden="true"></i
+                >{{ car.formattedEndtime }}
+              </p>
+            </div>
+            <div
+              class="col-6 col-lg-2 position-static px-2 py-0 mb-1 order-last order-lg-3"
+            >
+              <p class="m-0 small text-nowrap">
+                <i class="fas fa-gavel me-1" aria-hidden="true"></i
+                >{{ car.formattedCurrentPrice }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
